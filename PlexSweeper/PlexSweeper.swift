@@ -83,8 +83,10 @@ class PlexSweeper {
                         let newShowUrl = showsUrl.appendingPathComponent(showName)
                         
                         // Создаем папку
-                        // TODO: Сразу грузить обложку сериала
                         try fileManager.createDirectory(at: newShowUrl, withIntermediateDirectories: true, attributes: nil)
+                        
+                        // Грузим постер
+                        updateShowPoster(url: newShowUrl, needToCompare: false)
                         
                         // Закидываем сериал в новую папку
                         try fileManager.moveItem(at: url, to: newShowUrl.appendingPathComponent(url.lastPathComponent))
@@ -123,7 +125,7 @@ class PlexSweeper {
     }
     
     /// Обновляет постер конкретного сериала
-    func updateShowPoster(url: URL, completion: (() -> Void)? = nil) {
+    func updateShowPoster(url: URL, needToCompare: Bool = true, completion: (() -> Void)? = nil) {
         
         // Берём название сериала
         let showName = showNameFromUrl(url) ?? url.lastPathComponent
@@ -144,7 +146,7 @@ class PlexSweeper {
                 
                 // Меняем иконку, если она новая
                 let oldShowImage = NSWorkspace.shared.icon(forFile: url.path)
-                if self.compareImages(image1: oldShowImage, isEqualTo: showImage) == false {
+                if self.compareImages(image1: oldShowImage, isEqualTo: showImage) == false || needToCompare == false {
                     NSWorkspace.shared.setIcon(showImage, forFile: url.path, options: .exclude10_4ElementsIconCreationOption)
                 }
                 
