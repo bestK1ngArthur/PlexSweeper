@@ -34,10 +34,14 @@ class PosterDownloader {
             do {
                 let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
     
-                // Очень больный парсинг для получения пути до постера
+                // Очень больной парсинг для получения пути до постера
                 if let posterPath = ((json!["results"] as! [Any])[0] as! [String: Any])["poster_path"] {
                     
-                    let posterUrl = URL(string: "\(self.fileUrl)\(posterPath)")!
+                    guard let posterUrl = URL(string: "\(self.fileUrl)\(posterPath)") else {
+                        completion(nil)
+                        return
+                    }
+                    
                     let posterRequest = URLRequest(url: posterUrl)
                     let posterTask = URLSession.shared.dataTask(with: posterRequest, completionHandler: { (data, response, error) in
                         

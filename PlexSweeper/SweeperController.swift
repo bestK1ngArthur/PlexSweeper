@@ -8,10 +8,14 @@
 
 import Cocoa
 
-class ViewController: NSViewController, PlexSweeperDelegate {
+class SweeperController: NSViewController, PlexSweeperDelegate {
     
+    @IBOutlet weak var scrollView: NSScrollView!
     @IBOutlet var consoleView: NSTextView!
+    
     @IBOutlet weak var indicator: NSProgressIndicator!
+    
+    @IBOutlet weak var sweepButton: NSButton!
     
     var sweeper: PlexSweeper?
     
@@ -20,7 +24,7 @@ class ViewController: NSViewController, PlexSweeperDelegate {
     
     // MARK: API
     
-    let theMovieDBApiKey = "your api key"
+    let theMovieDBApiKey = "f11f0534c3e09c599e78ceadcdb91b32"
     
     // MARK: - Folders
     
@@ -34,12 +38,13 @@ class ViewController: NSViewController, PlexSweeperDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.prepareUI()
+        
         sweeper = PlexSweeper(movies: moviesUrl, untreatedMovies: untreatedMoviesUrl, shows: showsUrl, untreatedShows: untreatedShowsUrl, theMovieDBApiKey: theMovieDBApiKey)
         sweeper?.delegate = self
         
         moviesObserver = DirectoryObserver(url: untreatedMoviesUrl, block: {
-            // BOOM!
+            // Обрабатываем фильмы.
         })
         showsObserver = DirectoryObserver(url: untreatedShowsUrl, block: {
             self.log("Начинаем уборку сериальчиков..")
@@ -48,11 +53,25 @@ class ViewController: NSViewController, PlexSweeperDelegate {
         })
     }
     
+    func prepareUI() {
+        
+        // Меняем фон на тёмный
+        view.wantsLayer = true
+        view.layer?.backgroundColor = NSColor(calibratedRed: 31 / 255.0, green: 32 / 255.0, blue: 41 / 255.0, alpha: 1).cgColor
+    }
+    
     // MARK: - Actions
     
     @IBAction func sweepShowsAction(_ sender: Any) {
-        sweeper?.loadShowsList()
+        log("Начинаем уборку")
+        
+        // Обрабатываем фильмы.
+        // ..
+
+        // Обрабатываем сериалы.
         sweeper?.sweepUntreatedShows()
+        
+        log("В фильмах и сериальчиках прибрались")
     }
     
     @IBAction func updateShowPostersAction(_ sender: Any) {
@@ -80,8 +99,26 @@ class ViewController: NSViewController, PlexSweeperDelegate {
     func log(_ string: String) {
         
         DispatchQueue.main.async {
-            self.consoleView.textStorage?.append(NSAttributedString(string: "\(string)\n"))
+
             self.consoleView.scrollLineDown(self)
+            
+            let list = string.components(separatedBy: "\"")
+            
+            for (index, component) in list.enumerated() {
+                
+                var attributes: [NSAttributedStringKey : Any] = [.foregroundColor: NSColor.white]
+                
+                // Если нужно выделить строку
+                if index % 2 != 0 {
+                    attributes[NSAttributedStringKey.font] = NSFont.boldSystemFont(ofSize: 12)
+                } else {
+                    attributes[NSAttributedStringKey.font] = NSFont.systemFont(ofSize: 12)
+                }
+                
+                self.consoleView.textStorage?.append(NSAttributedString(string: "\(component)", attributes: attributes))
+            }
+            
+            self.consoleView.textStorage?.append(NSAttributedString(string: "\n"))
         }
     }
 }

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A529D25F20BB11CC00DD995F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A529D25E20BB11CC00DD995F /* AppDelegate.swift */; };
-		A529D26120BB11CC00DD995F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A529D26020BB11CC00DD995F /* ViewController.swift */; };
+		A529D26120BB11CC00DD995F /* SweeperController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A529D26020BB11CC00DD995F /* SweeperController.swift */; };
 		A529D26320BB11D700DD995F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A529D26220BB11D700DD995F /* Assets.xcassets */; };
 		A529D26620BB11D700DD995F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A529D26420BB11D700DD995F /* Main.storyboard */; };
 		A529D27020BB121000DD995F /* PlexSweeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A529D26E20BB120F00DD995F /* PlexSweeper.swift */; };
@@ -19,7 +19,7 @@
 /* Begin PBXFileReference section */
 		A529D25B20BB11CC00DD995F /* PlexSweeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlexSweeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A529D25E20BB11CC00DD995F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A529D26020BB11CC00DD995F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A529D26020BB11CC00DD995F /* SweeperController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SweeperController.swift; sourceTree = "<group>"; };
 		A529D26220BB11D700DD995F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A529D26520BB11D700DD995F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A529D26720BB11D700DD995F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -60,7 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				A529D25E20BB11CC00DD995F /* AppDelegate.swift */,
-				A529D26020BB11CC00DD995F /* ViewController.swift */,
+				A529D26020BB11CC00DD995F /* SweeperController.swift */,
 				A529D26E20BB120F00DD995F /* PlexSweeper.swift */,
 				A529D26F20BB121000DD995F /* PosterDownloader.swift */,
 				A529D27420BB3A3B00DD995F /* DirectoryObserver.swift */,
@@ -150,7 +150,7 @@
 				A529D27020BB121000DD995F /* PlexSweeper.swift in Sources */,
 				A529D27520BB3A3B00DD995F /* DirectoryObserver.swift in Sources */,
 				A529D27120BB121000DD995F /* PosterDownloader.swift in Sources */,
-				A529D26120BB11CC00DD995F /* ViewController.swift in Sources */,
+				A529D26120BB11CC00DD995F /* SweeperController.swift in Sources */,
 				A529D25F20BB11CC00DD995F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14109"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -684,8 +684,8 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="Plex Sweeper" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                    <window key="window" title="Plex Sweeper" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="IQv-IB-iLA">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" fullSizeContentView="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
@@ -701,25 +701,25 @@
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
         </scene>
-        <!--View Controller-->
+        <!--Sweeper Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="PlexSweeper" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XfG-lQ-9wD" customClass="SweeperController" customModule="PlexSweeper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dNw-ua-572">
-                                <rect key="frame" x="18" y="216" width="182" height="34"/>
+                                <rect key="frame" x="18" y="196" width="182" height="34"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Plex Sweeper" id="PIG-nY-0Mv">
                                     <font key="font" metaFont="systemBold" size="28"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UzI-B3-G86">
-                                <rect key="frame" x="15" y="164" width="143" height="32"/>
-                                <buttonCell key="cell" type="push" title="Sweep TV shows" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" id="J0m-t3-kkw">
+                                <rect key="frame" x="15" y="144" width="81" height="32"/>
+                                <buttonCell key="cell" type="push" title="Sweep" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" id="J0m-t3-kkw">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -728,7 +728,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xfK-Ht-DeW">
-                                <rect key="frame" x="15" y="131" width="196" height="32"/>
+                                <rect key="frame" x="15" y="111" width="196" height="32"/>
                                 <buttonCell key="cell" type="push" title="Update TV shows posters" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" id="dzS-9P-0c0">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -743,50 +743,56 @@
                                     <rect key="frame" x="0.0" y="0.0" width="240" height="270"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textView editable="NO" selectable="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="VKa-kY-sm8">
+                                        <textView editable="NO" selectable="NO" drawsBackground="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" continuousSpellChecking="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="VKa-kY-sm8">
                                             <rect key="frame" x="0.0" y="0.0" width="240" height="270"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="textColor" red="0.99019607843137258" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <size key="minSize" width="240" height="270"/>
                                             <size key="maxSize" width="463" height="10000000"/>
-                                            <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="insertionPointColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </textView>
                                     </subviews>
+                                    <color key="backgroundColor" red="0.29679387756005432" green="0.30941100013014161" blue="0.40044019670050757" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </clipView>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="s8r-JV-BXK"/>
                                 </constraints>
+                                <edgeInsets key="contentInsets" left="0.0" right="0.0" top="16" bottom="0.0"/>
+                                <edgeInsets key="scrollerInsets" left="0.0" right="0.0" top="-16" bottom="0.0"/>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="VPR-qG-v9E">
                                     <rect key="frame" x="-100" y="-100" width="87" height="18"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
-                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="ILq-i7-Wyr">
-                                    <rect key="frame" x="223" y="1" width="16" height="268"/>
+                                <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="ILq-i7-Wyr">
+                                    <rect key="frame" x="224" y="0.0" width="16" height="270"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
                             <progressIndicator hidden="YES" wantsLayer="YES" maxValue="100" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="Uic-5e-0qS">
-                                <rect key="frame" x="4" y="251" width="472" height="20"/>
+                                <rect key="frame" x="20" y="7" width="440" height="20"/>
                             </progressIndicator>
                         </subviews>
                         <constraints>
                             <constraint firstItem="dNw-ua-572" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="2e5-Wn-p0F"/>
-                            <constraint firstItem="Uic-5e-0qS" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="7CF-1M-A0H"/>
                             <constraint firstItem="UzI-B3-G86" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="21" id="9L4-mL-dQF"/>
                             <constraint firstItem="xfK-Ht-DeW" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="21" id="Ey3-65-qKk"/>
                             <constraint firstItem="baZ-za-L0L" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="Kej-tL-ufG"/>
+                            <constraint firstAttribute="bottom" secondItem="Uic-5e-0qS" secondAttribute="bottom" constant="8" id="LBR-M6-1zO"/>
                             <constraint firstItem="UzI-B3-G86" firstAttribute="top" secondItem="dNw-ua-572" secondAttribute="bottom" constant="24" id="WPp-WC-3Qe"/>
-                            <constraint firstItem="Uic-5e-0qS" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="4" id="Yu6-wd-dEq"/>
+                            <constraint firstItem="Uic-5e-0qS" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="Yu6-wd-dEq"/>
                             <constraint firstAttribute="trailing" secondItem="baZ-za-L0L" secondAttribute="trailing" id="aLo-X9-pOl"/>
                             <constraint firstItem="xfK-Ht-DeW" firstAttribute="top" secondItem="UzI-B3-G86" secondAttribute="bottom" constant="12" id="kOl-fi-JGu"/>
-                            <constraint firstItem="dNw-ua-572" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="mLJ-JJ-55m"/>
+                            <constraint firstItem="dNw-ua-572" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="40" id="mLJ-JJ-55m"/>
                             <constraint firstAttribute="bottom" secondItem="baZ-za-L0L" secondAttribute="bottom" id="nSU-aa-jQI"/>
-                            <constraint firstAttribute="trailing" secondItem="Uic-5e-0qS" secondAttribute="trailing" constant="4" id="qMZ-Tq-2Q2"/>
+                            <constraint firstAttribute="trailing" secondItem="Uic-5e-0qS" secondAttribute="trailing" constant="20" id="qMZ-Tq-2Q2"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="consoleView" destination="VKa-kY-sm8" id="IxC-zI-fcx"/>
                         <outlet property="indicator" destination="Uic-5e-0qS" id="hru-sT-5eS"/>
+                        <outlet property="scrollView" destination="baZ-za-L0L" id="zjf-rW-5SY"/>
+                        <outlet property="sweepButton" destination="UzI-B3-G86" id="h39-8O-RHI"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
