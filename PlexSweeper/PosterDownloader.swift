@@ -15,12 +15,21 @@ class PosterDownloader {
     private let language = "en-US"
     
     private let apiKey: String
+    private var showPostersQueue: Set<String>
     
     init(apiKey: String) {
         self.apiKey = apiKey
+        self.showPostersQueue = Set<String>()
     }
     
     func downloadShowPoster(name: String, completion: @escaping (NSImage?) -> Void) {
+        
+        // Если постер для данного сериала уже грузится, то ничего не делаем
+        if showPostersQueue.contains(name) {
+            return
+        }
+        
+        showPostersQueue.insert(name)
         
         let encodedName = name.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
         let findUrl = URL(string: "\(baseUrl)/3/search/tv?api_key=\(apiKey)&language=\(language)&query=\(encodedName)&page=1")!
@@ -28,6 +37,7 @@ class PosterDownloader {
             
             guard let data = data else {
                 completion(nil)
+                self.showPostersQueue.remove(name)
                 return
             }
     
@@ -39,6 +49,7 @@ class PosterDownloader {
                     
                     guard let posterUrl = URL(string: "\(self.fileUrl)\(posterPath)") else {
                         completion(nil)
+                        self.showPostersQueue.remove(name)
                         return
                     }
                     
@@ -47,23 +58,24 @@ class PosterDownloader {
                         
                         if let data = data, error == nil {
                             let image = NSImage(data: data)
-                            
                             completion(image)
-                            
                         } else {
                             completion(nil)
                         }
+                        
+                        self.showPostersQueue.remove(name)
                     })
                     
                     posterTask.resume()
                     
                 } else {
                     completion(nil)
+                    self.showPostersQueue.remove(name)
                 }
                 
             } catch {
-                print(error.localizedDescription)
                 completion(nil)
+                self.showPostersQueue.remove(name)
             }
         }
         
