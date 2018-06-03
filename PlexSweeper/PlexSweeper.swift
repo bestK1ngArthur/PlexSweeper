@@ -13,11 +13,10 @@ class PlexSweeper {
     
     let showsUrl: URL
     let untreatedShowsUrl: URL
-    
-    let theMovieDBApiKey: String
-    
+
+    private let posterDownloader: PosterDownloader
     private let fileManager = FileManager.default
-    
+
     init(movies: URL, untreatedMovies: URL, shows: URL, untreatedShows: URL, theMovieDBApiKey: String) {
         
         self.moviesUrl = movies
@@ -25,15 +24,15 @@ class PlexSweeper {
         self.showsUrl = shows
         self.untreatedShowsUrl = untreatedShows
         
-        self.theMovieDBApiKey = theMovieDBApiKey
+        self.posterDownloader = PosterDownloader(apiKey: theMovieDBApiKey)
     }
     
     // MARK: - TV Shows
     
-    /// Список скачанных сериалов
+    /// List of shows
     var showsList: [String: URL] = [:]
     
-    /// Загружает текущий список сериалов
+    /// Load list of shows
     func loadShowsList() {
         
         // Пытаемся получить список урлов в директории сериалов
@@ -51,7 +50,7 @@ class PlexSweeper {
         }
     }
     
-    /// Разбирает необработанные сериалы
+    /// Sweep untreated shows
     func sweepUntreatedShows() {
         
         // Обновляем список сериалов
@@ -111,7 +110,7 @@ class PlexSweeper {
         
     }
     
-    /// Обновляет постеры сериалов
+    /// Update posters of all shows
     func updateShowPosters(status: ((Double) -> Void)? = nil, completion: (() -> Void)? = nil) {
         
         let statusPerShow: Double = 1 / Double(showsList.count)
@@ -131,15 +130,14 @@ class PlexSweeper {
         }
     }
     
-    /// Обновляет постер конкретного сериала
+    /// Update poster for show
     func updateShowPoster(url: URL, needToCompare: Bool = true, completion: (() -> Void)? = nil) {
         
         // Берём название сериала
         let showName = showNameFromUrl(url) ?? url.lastPathComponent
         
         // И грузим постер с TheMovieDB
-        let loader = PosterDownloader(apiKey: theMovieDBApiKey)
-        loader.downloadShowPoster(name: showName) { (image) in
+        posterDownloader.downloadShowPoster(name: showName) { (image) in
             
             // Если постер загрузился, то ставим его заместо картинки папки
             if let showPoster = image {
@@ -169,21 +167,20 @@ class PlexSweeper {
     
     // MARK: - Helpers
     
-    /// Проверяет является ли файл по урлу видео
+    /// Check file from URL is video
     func urlIsVideo(_ url: URL) -> Bool {
-        
         let name = url.lastPathComponent
         
         return name.hasSuffix(".mp4") || name.hasSuffix(".mkv") || name.hasSuffix(".avi")
     }
     
-    /// Проверяет является ли файл по урлу скрытым
+    /// Check file from URL is hidden
     func urlIsHiddenFile(_ url: URL) -> Bool {
         
         return url.lastPathComponent.first == "."
     }
     
-    /// Возвращает название сериала по урлу
+    /// Return show name from URL
     func showNameFromUrl(_ url: URL) -> String? {
         
         let fileName = url.lastPathComponent
@@ -209,7 +206,7 @@ class PlexSweeper {
         }
     }
     
-    /// Возвращает название эпизода по урлу
+    /// Return episode name from URL
     func episodeNameFromUrl(_ url: URL) -> String? {
         
         let fileName = url.lastPathComponent
@@ -240,7 +237,7 @@ class PlexSweeper {
         }
     }
     
-    /// Обновляет границы картинки, делая её квадратной
+    /// Make square image
     func updateBounds(image: NSImage) -> NSImage {
         
         let bitmap = image.representations[0]
@@ -269,7 +266,7 @@ class PlexSweeper {
         return borderedImage
     }
     
-    // Конвертирует картинку в .icns
+    /// Convert image to .icns
     func convertToIcon(image: NSImage) -> NSImage? {
     
         var imageData = image.tiffRepresentation
@@ -292,7 +289,7 @@ class PlexSweeper {
         }
     }
     
-    // Сравнивает картинки
+    /// Compare images
     func compareImages(image1: NSImage, isEqualTo image2: NSImage) -> Bool {
 
         let data1: NSData = image1.tiffRepresentation! as NSData
