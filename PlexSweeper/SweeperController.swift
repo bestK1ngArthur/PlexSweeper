@@ -47,9 +47,9 @@ class SweeperController: NSViewController, PlexSweeperDelegate {
             // Обрабатываем фильмы.
         })
         showsObserver = DirectoryObserver(url: untreatedShowsUrl, block: {
-            self.log("Начинаем уборку сериальчиков..")
+            //self.log("Начинаем уборку сериальчиков..")
             self.sweeper?.sweepUntreatedShows()
-            self.log("В сериальчиках прибрались")
+            //self.log("В сериальчиках прибрались")
         })
     }
     
@@ -63,7 +63,7 @@ class SweeperController: NSViewController, PlexSweeperDelegate {
     // MARK: - Actions
     
     @IBAction func sweepShowsAction(_ sender: Any) {
-        log("Начинаем уборку")
+        log("Start sweeping")
         
         // Обрабатываем фильмы.
         // ..
@@ -71,7 +71,7 @@ class SweeperController: NSViewController, PlexSweeperDelegate {
         // Обрабатываем сериалы.
         sweeper?.sweepUntreatedShows()
         
-        log("В фильмах и сериальчиках прибрались")
+        log("Finish sweeping")
     }
     
     @IBAction func updateShowPostersAction(_ sender: Any) {
@@ -80,7 +80,7 @@ class SweeperController: NSViewController, PlexSweeperDelegate {
         indicator.doubleValue = 0
         indicator.isHidden = false
         
-        log("Начинаем грузить постеры..")
+        log("Start downloading posters")
         sweeper?.updateShowPosters(status: { status in
             
             DispatchQueue.main.async {
@@ -89,7 +89,7 @@ class SweeperController: NSViewController, PlexSweeperDelegate {
         }, completion: {
             DispatchQueue.main.async {
                 self.indicator.isHidden = true
-                self.log("Закончили грузить постеры")
+                self.log("Finish loading posters")
             }
         })
     }

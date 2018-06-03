@@ -47,7 +47,7 @@ class PlexSweeper {
             }
             
         } catch {
-            delegate?.log("Хьюстон, похоже у нас проблемы с получением доступа к папке с сериалами")
+            delegate?.log("Error accessing the shows")
         }
     }
     
@@ -94,7 +94,7 @@ class PlexSweeper {
                         // Закидываем сериал в новую папку
                         try fileManager.moveItem(at: url, to: newShowUrl.appendingPathComponent(url.lastPathComponent))
                         
-                        delegate?.log("Разобрались с \"\(fileName)\"")
+                        delegate?.log("Sweep \"\(fileName)\"")
                         
                     } catch {
                         delegate?.log(error.localizedDescription)
@@ -103,7 +103,7 @@ class PlexSweeper {
             }
             
         } catch {
-            delegate?.log("Хьюстон, похоже у нас проблемы с получением доступа к папке с необработанными эпизодами")
+            delegate?.log("Error accessing the untreated shows")
         }
         
     }
@@ -153,10 +153,10 @@ class PlexSweeper {
                     NSWorkspace.shared.setIcon(showImage, forFile: url.path, options: .exclude10_4ElementsIconCreationOption)
                 }
                 
-                self.delegate?.log("Загрузили постер для \"\(showName)\"")
+                self.delegate?.log("Downloaded poster for \"\(showName)\"")
                 
             } else {
-                self.delegate?.log("Хьюстон, трабл с загрузкой постера для \"\(showName)\"")
+                self.delegate?.log("Error loading poster for \"\(showName)\"")
             }
             
             completion?()
