@@ -72,6 +72,9 @@ class PlexSweeper {
                     
                     do {
                         try fileManager.moveItem(at: url, to: showUrl.appendingPathComponent(url.lastPathComponent))
+                        
+                        delegate?.log("Sweep \"\(episodeNameFromUrl(url) ?? url.lastPathComponent)\"")
+
                     } catch {
                         delegate?.log(error.localizedDescription)
                     }
@@ -94,7 +97,7 @@ class PlexSweeper {
                         // Закидываем сериал в новую папку
                         try fileManager.moveItem(at: url, to: newShowUrl.appendingPathComponent(url.lastPathComponent))
                         
-                        delegate?.log("Sweep \"\(fileName)\"")
+                        delegate?.log("Sweep \"\(episodeNameFromUrl(url) ?? url.lastPathComponent)\"")
                         
                     } catch {
                         delegate?.log(error.localizedDescription)
@@ -196,6 +199,37 @@ class PlexSweeper {
                 // Убираем точки, если они есть
                 let showName = fileName.prefix(upTo: fileName.index(fileName.startIndex, offsetBy: range.location - 1)).replacingOccurrences(of: ".", with: " ")
                 return showName
+            }
+            
+            return nil
+            
+        } catch {
+            delegate?.log(error.localizedDescription)
+            return nil
+        }
+    }
+    
+    /// Возвращает название эпизода по урлу
+    func episodeNameFromUrl(_ url: URL) -> String? {
+        
+        let fileName = url.lastPathComponent
+        
+        do {
+            // С помощью регулярки ищем идентификатора сериала
+            let regex = try NSRegularExpression(pattern: "(?=S\\d{1,2}E\\d{1,2})")
+            
+            // Всё, что до этого идентификатора, является названием сериала
+            let range = regex.rangeOfFirstMatch(in: fileName, range: NSRange(location: 0, length: fileName.count))
+            if range != NSRange(location: NSNotFound, length: 0) {
+                
+                // Убираем точки, если они есть
+                let showName = fileName.prefix(upTo: fileName.index(fileName.startIndex, offsetBy: range.location - 1)).replacingOccurrences(of: ".", with: " ")
+
+                // Получаем номер сезона и эпизода
+                if let eposideNumber = fileName.suffix(from: fileName.index(fileName.startIndex, offsetBy: range.location)).components(separatedBy: ".").first {
+                    
+                    return "\(showName) (\(eposideNumber))"
+                }
             }
             
             return nil
