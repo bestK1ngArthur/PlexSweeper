@@ -1,0 +1,16 @@
+PODS:
+  - FlatButton (1.2)
+
+DEPENDENCIES:
+  - FlatButton
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - FlatButton
+
+SPEC CHECKSUMS:
+  FlatButton: 9995b972cd520be091f0ba6b215b84cbe7d46fa8
+
+PODFILE CHECKSUM: 31be98265ae6c414fe04ab34096248e683c79cef
+
+COCOAPODS: 1.5.3
