@@ -116,13 +116,14 @@ class PlexSweeper {
         var currentStatus: Double = statusPerShow
         for (_, showUrl) in showsList {
             updateShowPoster(url: showUrl) {
+                                
                 status?(currentStatus)
-                
-                currentStatus += statusPerShow
-                
+            
                 if currentStatus >= 1 {
                     completion?()
                 }
+                
+                currentStatus += statusPerShow
             }
         }
     }

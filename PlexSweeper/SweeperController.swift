@@ -86,6 +86,7 @@ class SweeperController: NSViewController, PlexSweeperDelegate {
             DispatchQueue.main.async {
                 self.indicator.doubleValue = status * 100
             }
+            
         }, completion: {
             DispatchQueue.main.async {
                 self.indicator.isHidden = true
