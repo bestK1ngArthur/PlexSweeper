@@ -13,6 +13,7 @@ class SweeperController: NSViewController, PlexSweeperDelegate {
     @IBOutlet weak var scrollView: NSScrollView!
     @IBOutlet var consoleView: NSTextView!
     
+    @IBOutlet weak var titleLabel: NSTextField!
     @IBOutlet weak var indicator: NSProgressIndicator!
     
     @IBOutlet weak var sweepButton: NSButton!
@@ -47,17 +48,13 @@ class SweeperController: NSViewController, PlexSweeperDelegate {
             // Обрабатываем фильмы.
         })
         showsObserver = DirectoryObserver(url: untreatedShowsUrl, block: {
-            //self.log("Начинаем уборку сериальчиков..")
             self.sweeper?.sweepUntreatedShows()
-            //self.log("В сериальчиках прибрались")
         })
     }
     
     func prepareUI() {
-        
-        // Меняем фон на тёмный
-        view.wantsLayer = true
-        view.layer?.backgroundColor = NSColor(calibratedRed: 31 / 255.0, green: 32 / 255.0, blue: 41 / 255.0, alpha: 1).cgColor
+    
+        titleLabel.textColor = NSColor(named: NSColor.Name("titleColor"))
     }
     
     // MARK: - Actions
@@ -107,7 +104,7 @@ class SweeperController: NSViewController, PlexSweeperDelegate {
             
             for (index, component) in list.enumerated() {
                 
-                var attributes: [NSAttributedStringKey : Any] = [.foregroundColor: NSColor.white]
+                var attributes: [NSAttributedStringKey : Any] = [.foregroundColor: NSColor(named: NSColor.Name("titleColor")) ?? NSColor.white]
                 
                 // Если нужно выделить строку
                 if index % 2 != 0 {
