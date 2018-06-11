@@ -6,7 +6,7 @@ target 'PlexSweeper' do
   use_frameworks!
 
   # Pods for PlexSweeper
-  pod 'FlatButton'
+  #pod 'FlatButton'
 
   post_install do |installer|
       installer.pods_project.targets.each do |target|

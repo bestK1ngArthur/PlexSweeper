@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CFA8508D18B45EB88208A14128E4EF05"
+               BlueprintIdentifier = "B48D001BDDD87ABC76EC774C8D059D19"
                BuildableName = "Pods_PlexSweeper.framework"
                BlueprintName = "Pods-PlexSweeper"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CFA8508D18B45EB88208A14128E4EF05"
+            BlueprintIdentifier = "B48D001BDDD87ABC76EC774C8D059D19"
             BuildableName = "Pods_PlexSweeper.framework"
             BlueprintName = "Pods-PlexSweeper"
             ReferencedContainer = "container:Pods.xcodeproj">
