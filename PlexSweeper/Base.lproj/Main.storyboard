@@ -729,8 +729,8 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xfK-Ht-DeW">
-                                <rect key="frame" x="15" y="111" width="196" height="32"/>
-                                <buttonCell key="cell" type="push" title="Update TV shows posters" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" id="dzS-9P-0c0">
+                                <rect key="frame" x="15" y="111" width="134" height="32"/>
+                                <buttonCell key="cell" type="push" title="Update posters" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" id="dzS-9P-0c0">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -773,10 +773,19 @@
                             <progressIndicator hidden="YES" wantsLayer="YES" maxValue="100" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="Uic-5e-0qS">
                                 <rect key="frame" x="-5" y="-7" width="490" height="20"/>
                             </progressIndicator>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ACO-wH-Lon">
+                                <rect key="frame" x="15" y="78" width="91" height="32"/>
+                                <buttonCell key="cell" type="push" title="Settings" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" id="eZq-Jh-yUp">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="dNw-ua-572" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="2e5-Wn-p0F"/>
+                            <constraint firstItem="ACO-wH-Lon" firstAttribute="top" secondItem="xfK-Ht-DeW" secondAttribute="bottom" constant="12" id="2q9-5b-POH"/>
                             <constraint firstItem="UzI-B3-G86" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="21" id="9L4-mL-dQF"/>
+                            <constraint firstItem="ACO-wH-Lon" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="21" id="Dnt-a4-Eyw"/>
                             <constraint firstItem="xfK-Ht-DeW" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="21" id="Ey3-65-qKk"/>
                             <constraint firstItem="baZ-za-L0L" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="Kej-tL-ufG"/>
                             <constraint firstAttribute="bottom" secondItem="Uic-5e-0qS" secondAttribute="bottom" constant="-6" id="LBR-M6-1zO"/>

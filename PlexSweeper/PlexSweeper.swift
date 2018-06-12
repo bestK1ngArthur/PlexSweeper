@@ -9,7 +9,7 @@ class PlexSweeper {
     var delegate: PlexSweeperDelegate?
     
     let moviesUrl: URL
-    let untreatedMovies: URL
+    let untreatedMoviesUrl: URL
     
     let showsUrl: URL
     let untreatedShowsUrl: URL
@@ -20,11 +20,38 @@ class PlexSweeper {
     init(movies: URL, untreatedMovies: URL, shows: URL, untreatedShows: URL, theMovieDBApiKey: String) {
         
         self.moviesUrl = movies
-        self.untreatedMovies = untreatedMovies
+        self.untreatedMoviesUrl = untreatedMovies
         self.showsUrl = shows
         self.untreatedShowsUrl = untreatedShows
         
         self.posterDownloader = PosterDownloader(apiKey: theMovieDBApiKey)
+    }
+    
+    // MARK: - Movies
+    
+    /// Sweep untreated movies
+    func sweepUntreatedMovies() {
+        
+        // Пытаемся получить список урлов в папке с необработанными фильмами
+        do {
+            
+            let urls = try fileManager.contentsOfDirectory(at: untreatedMoviesUrl, includingPropertiesForKeys: nil)
+            for url in urls where urlIsHiddenFile(url) == false && urlIsVideo(url) {
+                
+                let fileName = url.lastPathComponent
+                
+                // Закидываем файл фильма в папку с фильмами
+                do {
+                    try fileManager.moveItem(at: url, to: moviesUrl.appendingPathComponent(fileName))
+                    delegate?.log("Sweep \"\(fileName)\"")
+                } catch {
+                    delegate?.log(error.localizedDescription)
+                }
+            }
+            
+        } catch {
+            delegate?.log("Error accessing the untreated movies")
+        }
     }
     
     // MARK: - TV Shows

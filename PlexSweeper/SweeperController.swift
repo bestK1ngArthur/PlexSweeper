@@ -45,7 +45,7 @@ class SweeperController: NSViewController, PlexSweeperDelegate {
         sweeper?.delegate = self
         
         moviesObserver = DirectoryObserver(url: untreatedMoviesUrl, block: {
-            // Обрабатываем фильмы.
+            self.sweeper?.sweepUntreatedMovies()
         })
         showsObserver = DirectoryObserver(url: untreatedShowsUrl, block: {
             self.sweeper?.sweepUntreatedShows()
@@ -63,7 +63,7 @@ class SweeperController: NSViewController, PlexSweeperDelegate {
         log("Start sweeping")
         
         // Обрабатываем фильмы.
-        // ..
+        sweeper?.sweepUntreatedMovies()
 
         // Обрабатываем сериалы.
         sweeper?.sweepUntreatedShows()
