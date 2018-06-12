@@ -9,9 +9,10 @@
 import Cocoa
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
 
     let statusItem = NSStatusBar.system.statusItem(withLength:NSStatusItem.squareLength)
+    var sweeperWindowController: NSWindowController?
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
 
@@ -20,6 +21,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             button.image = NSImage(named:NSImage.Name("StatusBarImage"))
             button.action = #selector(showWindow)
         }
+        
+        sweeperWindowController = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil).instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "MainWindowController")) as? NSWindowController
+        sweeperWindowController?.window?.delegate = self
+        sweeperWindowController?.showWindow(self)
+        sweeperWindowController?.window?.orderOut(self)
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -29,12 +35,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     // MARK: - Window
     
     @objc func showWindow() {
+        sweeperWindowController?.window?.orderFrontRegardless()
+    }
+    
+    // MARK: - NSWindowDelegate
+    
+    func windowShouldClose(_ sender: NSWindow) -> Bool {
         
-        if let shownWindow = NSApplication.shared.windows.last {
-            shownWindow.close()
+        // If window is sweeper window, deny to close the window
+        if sender.isEqual(sweeperWindowController?.window) {
+            sender.orderOut(self)
+            
+            return false
         }
         
-        let sweeperWindowController = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil).instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "MainWindowController")) as? NSWindowController
-        sweeperWindowController?.showWindow(self)
+        return true
     }
 }
