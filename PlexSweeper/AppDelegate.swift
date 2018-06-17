@@ -35,6 +35,14 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     // MARK: - Window
     
     @objc func showWindow() {
+        
+        // Update frame to current window
+//        if let mainScreenFrame = NSScreen.screens.first?.frame, let sweeperWindowFrame = sweeperWindowController?.window?.frame {
+//            let position: NSPoint = NSPoint(x: mainScreenFrame.width - sweeperWindowFrame.width, y: sweeperWindowFrame.origin.y)
+//            sweeperWindowController?.window?.setFrame(NSRect(x: position.x, y: position.y, width: sweeperWindowFrame.width, height: sweeperWindowFrame.height), display: true)
+//        }
+        
+        // Show window
         sweeperWindowController?.window?.orderFrontRegardless()
     }
     
