@@ -198,7 +198,7 @@ class PlexSweeper {
     func urlIsVideo(_ url: URL) -> Bool {
         let name = url.lastPathComponent
         
-        return name.hasSuffix(".mp4") || name.hasSuffix(".mkv") || name.hasSuffix(".avi")
+        return name.hasSuffix(".mp4") || name.hasSuffix(".mkv") || name.hasSuffix(".avi") || name.hasSuffix(".m4v")
     }
     
     /// Check file from URL is hidden
