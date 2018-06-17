@@ -139,17 +139,17 @@ class PlexSweeper {
     
     /// Update posters of all shows
     func updateShowPosters(status: ((Double) -> Void)? = nil, completion: (() -> Void)? = nil) {
-        
-        let statusPerShow: Double = 1 / Double(showsList.count)
-        
-        var currentStatus: Double = statusPerShow
+        let statusPerShow: Float = 1 / Float(showsList.count)
+
+        var currentStatus: Float = statusPerShow
         for (_, showUrl) in showsList {
             updateShowPoster(url: showUrl) {
                                 
-                status?(currentStatus)
+                status?(Double(currentStatus))
             
                 if currentStatus >= 1 {
                     completion?()
+                    return
                 }
                 
                 currentStatus += statusPerShow
