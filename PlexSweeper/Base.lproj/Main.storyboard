@@ -779,6 +779,19 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <segue destination="YR6-Eb-hLG" kind="show" id="hSm-Le-dD1"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cKu-oc-jba">
+                                <rect key="frame" x="15" y="45" width="66" height="32"/>
+                                <buttonCell key="cell" type="push" title="Quit" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" id="DhJ-re-Gla">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="quit:" target="XfG-lQ-9wD" id="xoI-fJ-2J3"/>
+                                </connections>
                             </button>
                         </subviews>
                         <constraints>
@@ -786,12 +799,14 @@
                             <constraint firstItem="ACO-wH-Lon" firstAttribute="top" secondItem="xfK-Ht-DeW" secondAttribute="bottom" constant="12" id="2q9-5b-POH"/>
                             <constraint firstItem="UzI-B3-G86" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="21" id="9L4-mL-dQF"/>
                             <constraint firstItem="ACO-wH-Lon" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="21" id="Dnt-a4-Eyw"/>
+                            <constraint firstItem="cKu-oc-jba" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="21" id="Exl-EG-spc"/>
                             <constraint firstItem="xfK-Ht-DeW" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="21" id="Ey3-65-qKk"/>
                             <constraint firstItem="baZ-za-L0L" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="Kej-tL-ufG"/>
                             <constraint firstAttribute="bottom" secondItem="Uic-5e-0qS" secondAttribute="bottom" constant="-6" id="LBR-M6-1zO"/>
                             <constraint firstItem="UzI-B3-G86" firstAttribute="top" secondItem="dNw-ua-572" secondAttribute="bottom" constant="24" id="WPp-WC-3Qe"/>
                             <constraint firstItem="Uic-5e-0qS" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="-5" id="Yu6-wd-dEq"/>
                             <constraint firstAttribute="trailing" secondItem="baZ-za-L0L" secondAttribute="trailing" id="aLo-X9-pOl"/>
+                            <constraint firstItem="cKu-oc-jba" firstAttribute="top" secondItem="ACO-wH-Lon" secondAttribute="bottom" constant="12" id="bYw-VB-M7x"/>
                             <constraint firstItem="xfK-Ht-DeW" firstAttribute="top" secondItem="UzI-B3-G86" secondAttribute="bottom" constant="12" id="kOl-fi-JGu"/>
                             <constraint firstItem="dNw-ua-572" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="40" id="mLJ-JJ-55m"/>
                             <constraint firstAttribute="bottom" secondItem="baZ-za-L0L" secondAttribute="bottom" id="nSU-aa-jQI"/>
@@ -809,6 +824,84 @@
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="655"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="zbZ-aV-8U3">
+            <objects>
+                <viewController title="Settings" id="YR6-Eb-hLG" sceneMemberID="viewController">
+                    <view key="view" id="mHo-1j-jq7">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="270"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="1hT-IB-LMU">
+                                <rect key="frame" x="0.0" y="150" width="450" height="120"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nWE-Qm-cNJ">
+                                        <rect key="frame" x="18" y="76" width="157" height="24"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="Untreated paths" id="oON-QL-bFK">
+                                            <font key="font" metaFont="systemBold" size="20"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <pathControl verticalHuggingPriority="750" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="88s-8r-Gth">
+                                        <rect key="frame" x="178" y="40" width="255" height="25"/>
+                                        <pathCell key="cell" selectable="YES" editable="YES" alignment="left" pathStyle="popUp" id="htS-VG-nBy">
+                                            <font key="font" metaFont="system"/>
+                                            <url key="url" string="file://localhost/Applications/"/>
+                                        </pathCell>
+                                    </pathControl>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nNL-PG-zf3">
+                                        <rect key="frame" x="24" y="44" width="151" height="18"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="Untreated movies path" id="EFo-fC-b4D">
+                                            <font key="font" metaFont="system" size="14"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="O4T-qY-YuX">
+                                        <rect key="frame" x="24" y="18" width="151" height="18"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="Untreated movies path" id="rHD-32-LNF">
+                                            <font key="font" metaFont="system" size="14"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <pathControl verticalHuggingPriority="750" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gfP-ss-ZAb">
+                                        <rect key="frame" x="178" y="17" width="255" height="25"/>
+                                        <pathCell key="cell" selectable="YES" editable="YES" alignment="left" pathStyle="popUp" id="acX-Q3-cur">
+                                            <font key="font" metaFont="system"/>
+                                            <url key="url" string="file://localhost/Applications/"/>
+                                        </pathCell>
+                                    </pathControl>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="gfP-ss-ZAb" firstAttribute="leading" secondItem="O4T-qY-YuX" secondAttribute="trailing" constant="8" id="1hI-2O-0Ep"/>
+                                    <constraint firstItem="88s-8r-Gth" firstAttribute="leading" secondItem="nNL-PG-zf3" secondAttribute="trailing" constant="8" id="4PA-oi-6OT"/>
+                                    <constraint firstItem="O4T-qY-YuX" firstAttribute="leading" secondItem="1hT-IB-LMU" secondAttribute="leading" constant="26" id="5bj-Ha-TZ6"/>
+                                    <constraint firstAttribute="trailing" secondItem="88s-8r-Gth" secondAttribute="trailing" constant="20" id="6wL-lz-uaN"/>
+                                    <constraint firstAttribute="trailing" secondItem="gfP-ss-ZAb" secondAttribute="trailing" constant="20" id="9OU-Ix-FkF"/>
+                                    <constraint firstItem="nNL-PG-zf3" firstAttribute="leading" secondItem="1hT-IB-LMU" secondAttribute="leading" constant="26" id="EwR-15-ea1"/>
+                                    <constraint firstItem="O4T-qY-YuX" firstAttribute="top" secondItem="nNL-PG-zf3" secondAttribute="bottom" constant="8" id="Nnj-cJ-0L0"/>
+                                    <constraint firstItem="gfP-ss-ZAb" firstAttribute="top" secondItem="88s-8r-Gth" secondAttribute="bottom" constant="4" id="PbL-jA-BXD"/>
+                                    <constraint firstItem="nWE-Qm-cNJ" firstAttribute="leading" secondItem="1hT-IB-LMU" secondAttribute="leading" constant="20" id="Plq-cY-ayS"/>
+                                    <constraint firstItem="nWE-Qm-cNJ" firstAttribute="top" secondItem="1hT-IB-LMU" secondAttribute="top" constant="20" id="Y3h-h2-aMq"/>
+                                    <constraint firstItem="88s-8r-Gth" firstAttribute="top" secondItem="1hT-IB-LMU" secondAttribute="top" constant="57" id="YFo-xw-m2x"/>
+                                    <constraint firstItem="nNL-PG-zf3" firstAttribute="top" secondItem="nWE-Qm-cNJ" secondAttribute="bottom" constant="14" id="ai0-Jv-hnv"/>
+                                    <constraint firstAttribute="height" constant="120" id="axc-MS-rw8"/>
+                                </constraints>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="1hT-IB-LMU" firstAttribute="leading" secondItem="mHo-1j-jq7" secondAttribute="leading" id="OFe-Uh-xbJ"/>
+                            <constraint firstItem="1hT-IB-LMU" firstAttribute="top" secondItem="mHo-1j-jq7" secondAttribute="top" id="OMx-Kq-TAC"/>
+                            <constraint firstAttribute="trailing" secondItem="1hT-IB-LMU" secondAttribute="trailing" id="uZY-Gx-2wE"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <customObject id="riO-Pf-UP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="696" y="655"/>
         </scene>
     </scenes>
 </document>

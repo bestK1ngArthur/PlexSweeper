@@ -92,6 +92,12 @@ class SweeperController: NSViewController, PlexSweeperDelegate {
         })
     }
     
+    @IBAction func quit(_ sender: Any) {
+        
+        // Close app
+        NSApp.terminate(self)
+    }
+    
     // MARK: - Log
     
     func log(_ string: String) {
