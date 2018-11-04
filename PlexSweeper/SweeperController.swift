@@ -30,12 +30,12 @@ class SweeperController: NSViewController, PlexSweeperDelegate {
     // MARK: - Folders
     
     // Папки для Plex
-    let moviesUrl = FileManager.default.urls(for: .moviesDirectory, in: .userDomainMask)[0].appendingPathComponent("Movies", isDirectory: true)
-    let showsUrl = FileManager.default.urls(for: .moviesDirectory, in: .userDomainMask)[0].appendingPathComponent("TV Shows", isDirectory: true)
+    let moviesUrl = AppSettings.shared.moviesUrl
+    let showsUrl = AppSettings.shared.showsUrl
     
     // Папки для необработанных файлов
-    let untreatedMoviesUrl = FileManager.default.urls(for: .moviesDirectory, in: .userDomainMask)[0].appendingPathComponent("Untreated/Movies", isDirectory: true)
-    let untreatedShowsUrl = FileManager.default.urls(for: .moviesDirectory, in: .userDomainMask)[0].appendingPathComponent("Untreated/TV Shows", isDirectory: true)
+    let untreatedMoviesUrl = AppSettings.shared.untreatedMoviesUrl
+    let untreatedShowsUrl = AppSettings.shared.untreatedShowsUrl
     
     override func viewDidLoad() {
         super.viewDidLoad()

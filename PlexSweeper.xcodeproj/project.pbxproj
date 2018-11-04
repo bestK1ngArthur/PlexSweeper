@@ -15,6 +15,7 @@
 		A529D27020BB121000DD995F /* PlexSweeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A529D26E20BB120F00DD995F /* PlexSweeper.swift */; };
 		A529D27120BB121000DD995F /* PosterDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A529D26F20BB121000DD995F /* PosterDownloader.swift */; };
 		A529D27520BB3A3B00DD995F /* DirectoryObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = A529D27420BB3A3B00DD995F /* DirectoryObserver.swift */; };
+		A5924DA0218F03ED00509346 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5924D9F218F03ED00509346 /* SettingsController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		A529D26E20BB120F00DD995F /* PlexSweeper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlexSweeper.swift; sourceTree = "<group>"; };
 		A529D26F20BB121000DD995F /* PosterDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PosterDownloader.swift; sourceTree = "<group>"; };
 		A529D27420BB3A3B00DD995F /* DirectoryObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryObserver.swift; sourceTree = "<group>"; };
+		A5924D9F218F03ED00509346 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		D54B3D1A614EC0BD5F14C213 /* Pods-PlexSweeper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlexSweeper.release.xcconfig"; path = "Pods/Target Support Files/Pods-PlexSweeper/Pods-PlexSweeper.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -68,6 +70,7 @@
 			children = (
 				A529D25E20BB11CC00DD995F /* AppDelegate.swift */,
 				A529D26020BB11CC00DD995F /* SweeperController.swift */,
+				A5924D9F218F03ED00509346 /* SettingsController.swift */,
 				A529D26E20BB120F00DD995F /* PlexSweeper.swift */,
 				A529D26F20BB121000DD995F /* PosterDownloader.swift */,
 				A529D27420BB3A3B00DD995F /* DirectoryObserver.swift */,
@@ -193,6 +196,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5924DA0218F03ED00509346 /* SettingsController.swift in Sources */,
 				A529D27020BB121000DD995F /* PlexSweeper.swift in Sources */,
 				A529D27520BB3A3B00DD995F /* DirectoryObserver.swift in Sources */,
 				A529D27120BB121000DD995F /* PosterDownloader.swift in Sources */,

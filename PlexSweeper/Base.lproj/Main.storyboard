@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14269.12" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14269.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -766,7 +766,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="ILq-i7-Wyr">
-                                    <rect key="frame" x="225" y="0.0" width="15" height="270"/>
+                                    <rect key="frame" x="224" y="0.0" width="16" height="270"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
@@ -828,56 +828,54 @@
         <!--Settings-->
         <scene sceneID="zbZ-aV-8U3">
             <objects>
-                <viewController title="Settings" id="YR6-Eb-hLG" sceneMemberID="viewController">
+                <viewController title="Settings" id="YR6-Eb-hLG" customClass="SettingsController" customModule="PlexSweeper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="mHo-1j-jq7">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="1hT-IB-LMU">
-                                <rect key="frame" x="0.0" y="150" width="450" height="120"/>
+                                <rect key="frame" x="0.0" y="180" width="450" height="120"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nWE-Qm-cNJ">
-                                        <rect key="frame" x="18" y="76" width="157" height="24"/>
-                                        <textFieldCell key="cell" lineBreakMode="clipping" title="Untreated paths" id="oON-QL-bFK">
+                                        <rect key="frame" x="18" y="76" width="72" height="24"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="Movies" id="oON-QL-bFK">
                                             <font key="font" metaFont="systemBold" size="20"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
                                     <pathControl verticalHuggingPriority="750" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="88s-8r-Gth">
-                                        <rect key="frame" x="178" y="40" width="255" height="25"/>
+                                        <rect key="frame" x="329" y="40" width="104" height="25"/>
                                         <pathCell key="cell" selectable="YES" editable="YES" alignment="left" pathStyle="popUp" id="htS-VG-nBy">
                                             <font key="font" metaFont="system"/>
-                                            <url key="url" string="file://localhost/Applications/"/>
+                                            <url key="url" string="file:///Movies/Untreated/Movies"/>
                                         </pathCell>
                                     </pathControl>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nNL-PG-zf3">
-                                        <rect key="frame" x="24" y="44" width="151" height="18"/>
-                                        <textFieldCell key="cell" lineBreakMode="clipping" title="Untreated movies path" id="EFo-fC-b4D">
+                                        <rect key="frame" x="24" y="44" width="87" height="18"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="Treated path" id="EFo-fC-b4D">
                                             <font key="font" metaFont="system" size="14"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="O4T-qY-YuX">
-                                        <rect key="frame" x="24" y="18" width="151" height="18"/>
-                                        <textFieldCell key="cell" lineBreakMode="clipping" title="Untreated movies path" id="rHD-32-LNF">
+                                        <rect key="frame" x="24" y="18" width="102" height="18"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="Untreated path" id="rHD-32-LNF">
                                             <font key="font" metaFont="system" size="14"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
                                     <pathControl verticalHuggingPriority="750" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gfP-ss-ZAb">
-                                        <rect key="frame" x="178" y="17" width="255" height="25"/>
+                                        <rect key="frame" x="329" y="17" width="104" height="25"/>
                                         <pathCell key="cell" selectable="YES" editable="YES" alignment="left" pathStyle="popUp" id="acX-Q3-cur">
                                             <font key="font" metaFont="system"/>
-                                            <url key="url" string="file://localhost/Applications/"/>
+                                            <url key="url" string="file:///Movies/Untreated/Movies"/>
                                         </pathCell>
                                     </pathControl>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="gfP-ss-ZAb" firstAttribute="leading" secondItem="O4T-qY-YuX" secondAttribute="trailing" constant="8" id="1hI-2O-0Ep"/>
-                                    <constraint firstItem="88s-8r-Gth" firstAttribute="leading" secondItem="nNL-PG-zf3" secondAttribute="trailing" constant="8" id="4PA-oi-6OT"/>
                                     <constraint firstItem="O4T-qY-YuX" firstAttribute="leading" secondItem="1hT-IB-LMU" secondAttribute="leading" constant="26" id="5bj-Ha-TZ6"/>
                                     <constraint firstAttribute="trailing" secondItem="88s-8r-Gth" secondAttribute="trailing" constant="20" id="6wL-lz-uaN"/>
                                     <constraint firstAttribute="trailing" secondItem="gfP-ss-ZAb" secondAttribute="trailing" constant="20" id="9OU-Ix-FkF"/>
@@ -891,17 +889,106 @@
                                     <constraint firstAttribute="height" constant="120" id="axc-MS-rw8"/>
                                 </constraints>
                             </customView>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="x91-FF-RP9">
+                                <rect key="frame" x="0.0" y="52" width="450" height="120"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="g3h-iN-GDK">
+                                        <rect key="frame" x="18" y="76" width="99" height="24"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="TV Shows" id="DQm-pJ-f85">
+                                            <font key="font" metaFont="systemBold" size="20"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <pathControl verticalHuggingPriority="750" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ivi-P7-SMe">
+                                        <rect key="frame" x="311" y="40" width="122" height="25"/>
+                                        <pathCell key="cell" selectable="YES" editable="YES" alignment="left" pathStyle="popUp" id="PXb-J6-JaU">
+                                            <font key="font" metaFont="system"/>
+                                            <url key="url" string="file:///Movies/TV%20Shows"/>
+                                        </pathCell>
+                                    </pathControl>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iwh-ma-PQf">
+                                        <rect key="frame" x="24" y="44" width="87" height="18"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="Treated path" id="D9J-7d-es3">
+                                            <font key="font" metaFont="system" size="14"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="MBj-dm-6KZ">
+                                        <rect key="frame" x="24" y="18" width="102" height="18"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="Untreated path" id="E07-9q-xAg">
+                                            <font key="font" metaFont="system" size="14"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <pathControl verticalHuggingPriority="750" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mjc-IK-Qbg">
+                                        <rect key="frame" x="311" y="17" width="122" height="25"/>
+                                        <pathCell key="cell" selectable="YES" editable="YES" alignment="left" pathStyle="popUp" id="ZCb-rN-nUi">
+                                            <font key="font" metaFont="system"/>
+                                            <url key="url" string="file:///Movies/Untreated/TV%20Shows"/>
+                                        </pathCell>
+                                    </pathControl>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="MBj-dm-6KZ" firstAttribute="leading" secondItem="x91-FF-RP9" secondAttribute="leading" constant="26" id="7Me-5a-Jhs"/>
+                                    <constraint firstItem="g3h-iN-GDK" firstAttribute="leading" secondItem="x91-FF-RP9" secondAttribute="leading" constant="20" id="HOb-6A-doU"/>
+                                    <constraint firstItem="g3h-iN-GDK" firstAttribute="top" secondItem="x91-FF-RP9" secondAttribute="top" constant="20" id="IIE-9M-EZ0"/>
+                                    <constraint firstItem="mjc-IK-Qbg" firstAttribute="top" secondItem="Ivi-P7-SMe" secondAttribute="bottom" constant="4" id="PCA-qo-ysX"/>
+                                    <constraint firstItem="MBj-dm-6KZ" firstAttribute="top" secondItem="iwh-ma-PQf" secondAttribute="bottom" constant="8" id="QQl-Qv-J6I"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ivi-P7-SMe" secondAttribute="trailing" constant="20" id="U3h-qQ-ow4"/>
+                                    <constraint firstItem="iwh-ma-PQf" firstAttribute="leading" secondItem="x91-FF-RP9" secondAttribute="leading" constant="26" id="aRd-BE-zcA"/>
+                                    <constraint firstItem="Ivi-P7-SMe" firstAttribute="top" secondItem="x91-FF-RP9" secondAttribute="top" constant="57" id="koV-0b-kDS"/>
+                                    <constraint firstAttribute="trailing" secondItem="mjc-IK-Qbg" secondAttribute="trailing" constant="20" id="nMP-II-Qyw"/>
+                                    <constraint firstItem="iwh-ma-PQf" firstAttribute="top" secondItem="g3h-iN-GDK" secondAttribute="bottom" constant="14" id="ozK-ir-9nx"/>
+                                    <constraint firstAttribute="height" constant="120" id="q8u-mv-BLS"/>
+                                </constraints>
+                            </customView>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aTk-69-bkw">
+                                <rect key="frame" x="366" y="13" width="70" height="32"/>
+                                <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" id="EU9-cs-u7P">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="saveAction:" target="YR6-Eb-hLG" id="Vzh-FK-crZ"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="l37-w4-FhE">
+                                <rect key="frame" x="291" y="13" width="75" height="32"/>
+                                <buttonCell key="cell" type="push" title="Close" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" id="eK1-Gj-JcW">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="closeAction:" target="YR6-Eb-hLG" id="I4Z-xa-fN0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="aTk-69-bkw" secondAttribute="bottom" constant="20" id="9SC-UK-xDJ"/>
+                            <constraint firstItem="x91-FF-RP9" firstAttribute="top" secondItem="1hT-IB-LMU" secondAttribute="bottom" constant="8" id="DL2-oG-Tnt"/>
                             <constraint firstItem="1hT-IB-LMU" firstAttribute="leading" secondItem="mHo-1j-jq7" secondAttribute="leading" id="OFe-Uh-xbJ"/>
                             <constraint firstItem="1hT-IB-LMU" firstAttribute="top" secondItem="mHo-1j-jq7" secondAttribute="top" id="OMx-Kq-TAC"/>
+                            <constraint firstItem="aTk-69-bkw" firstAttribute="leading" secondItem="l37-w4-FhE" secondAttribute="trailing" constant="12" id="Tgd-Mg-3Wd"/>
+                            <constraint firstAttribute="trailing" secondItem="aTk-69-bkw" secondAttribute="trailing" constant="20" id="VTR-mU-109"/>
+                            <constraint firstAttribute="bottom" secondItem="l37-w4-FhE" secondAttribute="bottom" constant="20" id="ZKy-Zr-SXQ"/>
+                            <constraint firstAttribute="trailing" secondItem="x91-FF-RP9" secondAttribute="trailing" id="g0Q-3J-wYr"/>
+                            <constraint firstItem="x91-FF-RP9" firstAttribute="leading" secondItem="mHo-1j-jq7" secondAttribute="leading" id="nOo-Pp-Xkm"/>
                             <constraint firstAttribute="trailing" secondItem="1hT-IB-LMU" secondAttribute="trailing" id="uZY-Gx-2wE"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="moviesPathControl" destination="88s-8r-Gth" id="nY0-ka-3Wi"/>
+                        <outlet property="showsPathControl" destination="Ivi-P7-SMe" id="luj-w0-Teq"/>
+                        <outlet property="untreatedMoviesPathControl" destination="gfP-ss-ZAb" id="3a7-MU-xWO"/>
+                        <outlet property="untreatedShowsPathControl" destination="mjc-IK-Qbg" id="RpR-aJ-VgY"/>
+                    </connections>
                 </viewController>
                 <customObject id="riO-Pf-UP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="696" y="655"/>
+            <point key="canvasLocation" x="696" y="670"/>
         </scene>
     </scenes>
 </document>

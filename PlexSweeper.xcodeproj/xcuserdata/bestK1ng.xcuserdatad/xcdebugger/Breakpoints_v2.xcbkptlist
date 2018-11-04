@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PlexSweeper/PlexSweeper.swift"
-            timestampString = "549717128.5604"
+            timestampString = "563024147.967521"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "141"
-            endingLineNumber = "141"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
             landmarkName = "updateShowPoster(url:needToCompare:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -106,11 +106,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PlexSweeper/PlexSweeper.swift"
-            timestampString = "549717128.5605659"
+            timestampString = "563024147.967585"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "148"
-            endingLineNumber = "148"
+            startingLineNumber = "175"
+            endingLineNumber = "175"
             landmarkName = "updateShowPoster(url:needToCompare:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -122,12 +122,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PlexSweeper/PlexSweeper.swift"
-            timestampString = "549717128.560601"
+            timestampString = "563024147.967622"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "246"
-            endingLineNumber = "246"
-            landmarkName = "convertToIcon(image:)"
+            startingLineNumber = "273"
+            endingLineNumber = "273"
+            landmarkName = "updateBounds(image:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -138,11 +138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PlexSweeper/PlexSweeper.swift"
-            timestampString = "549717128.560635"
+            timestampString = "563024147.967667"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "153"
-            endingLineNumber = "153"
+            startingLineNumber = "180"
+            endingLineNumber = "180"
             landmarkName = "updateShowPoster(url:needToCompare:completion:)"
             landmarkType = "7">
          </BreakpointContent>

@@ -60,3 +60,89 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         return true
     }
 }
+
+class AppSettings {
+    
+    static let shared = AppSettings()
+    
+    static private let moviesUrlKey = "MoviesUrl"
+    static private let showsUrlKey = "ShowsUrl"
+    static private let untreatedMoviesUrlKey = "UntreatedMoviesUrl"
+    static private let untreatedShowsUrlKey = "UntreatedShowsUrl"
+
+    var moviesUrl: URL {
+        get {
+            guard let url = UserDefaults.standard.url(forKey: AppSettings.moviesUrlKey) else {
+                let defaultUrl = FileManager.default.urls(for: .moviesDirectory, in: .userDomainMask)[0].appendingPathComponent("Movies", isDirectory: true)
+                
+                // Safe default url
+                self.moviesUrl = defaultUrl
+                
+                return defaultUrl
+            }
+
+            return url
+        }
+        
+        set {
+            UserDefaults.standard.set(newValue, forKey: AppSettings.moviesUrlKey)
+        }
+    }
+    
+    var showsUrl: URL {
+        get {
+            guard let url = UserDefaults.standard.url(forKey: AppSettings.showsUrlKey) else {
+                let defaultUrl = FileManager.default.urls(for: .moviesDirectory, in: .userDomainMask)[0].appendingPathComponent("TV Shows", isDirectory: true)
+                
+                // Safe default url
+                self.showsUrl = defaultUrl
+                
+                return defaultUrl
+            }
+            
+            return url
+        }
+        
+        set {
+            UserDefaults.standard.set(newValue, forKey: AppSettings.showsUrlKey)
+        }
+    }
+    
+    var untreatedMoviesUrl: URL {
+        get {
+            guard let url = UserDefaults.standard.url(forKey: AppSettings.untreatedMoviesUrlKey) else {
+                let defaultUrl = FileManager.default.urls(for: .moviesDirectory, in: .userDomainMask)[0].appendingPathComponent("Untreated/Movies", isDirectory: true)
+                
+                // Safe default url
+                self.untreatedMoviesUrl = defaultUrl
+                
+                return defaultUrl
+            }
+            
+            return url
+        }
+        
+        set {
+            UserDefaults.standard.set(newValue, forKey: AppSettings.untreatedMoviesUrlKey)
+        }
+    }
+    
+    var untreatedShowsUrl: URL {
+        get {
+            guard let url = UserDefaults.standard.url(forKey: AppSettings.untreatedShowsUrlKey) else {
+                let defaultUrl = FileManager.default.urls(for: .moviesDirectory, in: .userDomainMask)[0].appendingPathComponent("Untreated/TV Shows", isDirectory: true)
+                
+                // Safe default url
+                self.untreatedShowsUrl = defaultUrl
+                
+                return defaultUrl
+            }
+            
+            return url
+        }
+        
+        set {
+            UserDefaults.standard.set(newValue, forKey: AppSettings.untreatedShowsUrlKey)
+        }
+    }
+}
